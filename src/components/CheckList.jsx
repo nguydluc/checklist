@@ -51,7 +51,10 @@ const CheckList = ({ items, onDeleteItem, onToggleObject, onClearList }) => {
           <option value="description">Sort by description</option>
           <option value="prepared">Sort by prepared status</option>
         </select>
-        <button className="px-5 py-3 hover:text-brand-red duration-300">
+        <button
+          onClick={onClearList}
+          className="px-5 py-3 hover:text-brand-red duration-300"
+        >
           Clear list
         </button>
       </div>
