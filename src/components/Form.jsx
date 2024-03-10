@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-const Form = () => {
-  //onAddItem
+// eslint-disable-next-line react/prop-types
+const Form = ({ onAddItem }) => {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -10,9 +10,9 @@ const Form = () => {
 
     if (!description) return;
 
-    //const newItem = { description, quantity, packed: false, id: Date.now() };
-    //console.log(newItem);
-    //onAddItem(newItem);
+    const newItem = { description, quantity, prepared: false, id: Date.now() };
+    console.log(newItem);
+    onAddItem(newItem);
     setDescription("");
     setQuantity(1);
   }
