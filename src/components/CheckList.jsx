@@ -30,16 +30,6 @@ const CheckList = ({ items, onDeleteItem, onToggleObject, onClearList }) => {
             onToggleObject={onToggleObject}
           />
         ))}
-        {/*   
-        <li className="text-brand-green text-center">☑️ Item 1 ❌</li>
-        <li className="text-brand-green text-center">☑️ Item 2 ❌</li>
-        <li className="text-brand-green text-center">☑️ Item 3 ❌</li>
-        <li className="text-brand-green text-center">☑️ Item 4 ❌</li>
-        <li className="text-brand-green text-center">☑️ Item 5 ❌</li>
-        <li className="text-brand-green text-center">☑️ Item 6 ❌</li>
-        <li className="text-brand-green text-center">☑️ Item 7 ❌</li>
-        <li className="text-brand-green text-center">☑️ Item 8 ❌</li>
-        */}
       </ul>
       <div className="flex flex-col md:flex-row justify-center items-center">
         <select
