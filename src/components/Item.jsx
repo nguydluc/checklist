@@ -1,4 +1,7 @@
-const Item = ({ item, onDeleteItem, onToggleObject }) => {
+import { useApplicationContext } from "./providers/ItemProvider";
+
+const Item = ({ item }) => {
+  const { handleDeleteItem, handleToggleObject } = useApplicationContext();
   return (
     <li className="text-brand-green text-center font-semibold">
       <input
@@ -6,7 +9,7 @@ const Item = ({ item, onDeleteItem, onToggleObject }) => {
         type="checkbox"
         value={item.prepared}
         onChange={() => {
-          onToggleObject(item.id);
+          handleToggleObject(item.id);
         }}
       />
       <span
@@ -15,7 +18,7 @@ const Item = ({ item, onDeleteItem, onToggleObject }) => {
       >
         {item.quantity} {item.description}
       </span>
-      <button onClick={() => onDeleteItem(item.id)}>❌</button>
+      <button onClick={() => handleDeleteItem(item.id)}>❌</button>
     </li>
   );
 };

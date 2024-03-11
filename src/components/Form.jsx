@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useApplicationContext } from "./providers/ItemProvider";
 
 // eslint-disable-next-line react/prop-types
-const Form = ({ onAddItem }) => {
+const Form = () => {
+  const { handleAddItem } = useApplicationContext();
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -12,7 +14,7 @@ const Form = ({ onAddItem }) => {
 
     const newItem = { description, quantity, prepared: false, id: Date.now() };
     console.log(newItem);
-    onAddItem(newItem);
+    handleAddItem(newItem);
     setDescription("");
     setQuantity(1);
   }

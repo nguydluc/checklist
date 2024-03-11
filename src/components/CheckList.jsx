@@ -1,34 +1,15 @@
-import { useState } from "react";
 import Item from "./Item";
+import { useApplicationContext } from "./providers/ItemProvider";
 
-const CheckList = ({ items, onDeleteItem, onToggleObject, onClearList }) => {
-  const [sortBy, setSortBy] = useState("input");
-  let sortedItems;
-
-  if (sortBy === "input") sortedItems = items;
-
-  if (sortBy === "description")
-    sortedItems = items
-      // eslint-disable-next-line react/prop-types
-      .slice()
-      .sort((a, b) => a.description.localeCompare(b.description));
-
-  if (sortBy === "prepared")
-    sortedItems = items
-      // eslint-disable-next-line react/prop-types
-      .slice()
-      .sort((a, b) => Number(a.prepared) - Number(b.prepared));
+const CheckList = () => {
+  const { onClearList, sortedItems, sortBy, setSortBy } =
+    useApplicationContext();
 
   return (
     <div className="mx-auto px-[10%] py-[5%] w-[70%] h-[50vh] md:h-[60vh] max-w-screen-lg fixed top-[40vh] md:top-[30vh] overflow-auto left-0 right-0">
       <ul className="grid md:grid-cols-3 gap-3 mb-[10%]">
         {sortedItems.map((item) => (
-          <Item
-            item={item}
-            key={item.id}
-            onDeleteItem={onDeleteItem}
-            onToggleObject={onToggleObject}
-          />
+          <Item key={item.id} item={item} />
         ))}
       </ul>
       <div className="flex flex-col md:flex-row justify-center items-center">
